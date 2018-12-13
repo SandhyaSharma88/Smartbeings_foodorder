@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFEBEE"
+    tools:context=".activity.HomeActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/user_location"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:layout_below="@id/location_search"
+        android:layout_marginLeft="8dp"
+        android:hint="@string/home_edit_hint" />
+
+    <Button
+        android:id="@+id/location_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:textSize="20dp"
+        android:padding="8dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/home_search"
+        android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OR"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/location_auto"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textSize="20dp"
+        android:padding="8dp"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"
+        android:text="Detect my Location"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>
