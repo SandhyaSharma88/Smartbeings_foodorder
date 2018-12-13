@@ -2,4 +2,6 @@
     <string name="app_name">SmartBeings_FoodOrder</string>
     <string name="home_edit_hint">Enter your City here</string>
     <string name="home_search">Search</string>
+    <string name="restaurant_name">Restaurant Name</string>
+    <string name="user_rating">User Rating</string>
 </resources>

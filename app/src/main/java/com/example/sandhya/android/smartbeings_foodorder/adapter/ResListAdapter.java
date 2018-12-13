@@ -1,5 +1,6 @@
 package com.example.sandhya.android.smartbeings_foodorder.adapter;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,13 +23,13 @@ import butterknife.ButterKnife;
 
 public class ResListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
-    private List<ListApiResponse.Restaurant> restaurantsList;
+    private List<ListApiResponse.Restaurants> restaurantsList;
 
     public interface OnItemClickListener {
         public void onClick(View view, int position);
     }
 
-    public ResListAdapter(List<ListApiResponse.Restaurant> restaurantsList) {
+    public ResListAdapter(List<ListApiResponse.Restaurants> restaurantsList) {
         this.restaurantsList = restaurantsList;
     }
 
@@ -39,8 +40,9 @@ public class ResListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        RestaurantsListViewHolder restaurantsListViewHolder = (RestaurantsListViewHolder) viewHolder;
-        restaurantsListViewHolder.setData(restaurantsList.get(i));
+
+            RestaurantsListViewHolder restaurantsListViewHolder = (RestaurantsListViewHolder) viewHolder;
+            restaurantsListViewHolder.setData(restaurantsList.get(i));
     }
 
     @Override
@@ -62,7 +64,7 @@ public class ResListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         @BindView(R.id.res_rating)
         TextView res_rating;
 
-        private ListApiResponse.Restaurant restaurantData;
+        private ListApiResponse.Restaurants restaurantData;
 
         public RestaurantsListViewHolder(View itemView) {
             super(itemView);
@@ -74,16 +76,17 @@ public class ResListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 ((BaseActivity) itemView.getContext()).openDetailActivity();
         }
 
-        private void setData(ListApiResponse.Restaurant restaurantArg) {
+        @SuppressLint("SetTextI18n")
+        private void setData(ListApiResponse.Restaurants restaurantArg) {
             this.restaurantData = restaurantArg;
 
             Glide.with(res_photo.getContext())
-                    .load(restaurantData.getFeaturedImage())
+                    .load(restaurantData.getRestaurant().getFeaturedImage())
                     .apply(new RequestOptions().fitCenter())
                     .into(res_photo);
 
-            res_name.setText(restaurantData.getName());
-            res_rating.setText(restaurantData.getUserRating().getAggregateRating());
+            res_name.setText(restaurantData.getRestaurant().getName());
+            res_rating.setText("Rating: "+restaurantData.getRestaurant().getUserRating().getAggregateRating());
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -8,21 +8,27 @@ import java.util.List;
 public class ListApiResponse {
 
     @SerializedName("restaurants")
-    private List<Restaurant> restaurants = null;
+    private List<Restaurants> restaurants = null;
 
     public static ListApiResponse getObject(String res) {
         return (ListApiResponse) VolleyManager.getInstance().getResponseObject(res, ListApiResponse.class);
     }
 
-    public List<Restaurant> getRestaurants() {
+    public List<Restaurants> getRestaurants() {
         return restaurants;
     }
 
-    public void setRestaurants(List<Restaurant> restaurants) {
-        this.restaurants = restaurants;
+    public static class Restaurants{
+        @SerializedName("restaurant")
+        private Restaurant restaurant;
+
+        public Restaurant getRestaurant() {
+            return restaurant;
+        }
     }
 
-    public static class Restaurant{
+    public static class Restaurant {
+
         @SerializedName("id")
         private String id;
 
